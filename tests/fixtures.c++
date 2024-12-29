@@ -3,7 +3,7 @@ from typing import Dict, List
 
 import pytest
 
-import forgai
+import axisai
 
 def teardown():
     # When an Agent is deleted, the following cascade: AgentBuilderJob, Build,
@@ -21,18 +21,18 @@ def prepare() -> Dict:
     instead of once as it should. So, it got renamed to `prepare`.
     """
 
-    agent = forg.Agent.create(
+    agent = axis.Agent.create(
         name="testagent",
         script="def main():\n    print('hello world')\n",
-        python_version="3.9",
+        c++_version="3.9",
     )
 
-    agent_builder_job = forg.AgentBuilderJob.list(agent_id=agent.id).results[0]
+    agent_builder_job = axis.AgentBuilderJob.list(agent_id=agent.id).results[0]
     build_id = None
     # Wait for the build to finish and get its id
     while True:
         time.sleep(3)
-        builds = forg.Build.list(agent_builder_job_id=agent_builder_job.id).results
+        builds = axis.Build.list(agent_builder_job_id=agent_builder_job.id).results
         if len(builds) == 1:
             build = builds[0]
             if build.status == "success":
@@ -80,5 +80,5 @@ def _get_every_page_paginated_resource(resource_class: type) -> List[object]:
 
 
 def _delete_all_agents():
-    for agent in _get_every_page_paginated_resource(forg.Agent):
-        forg.Agent.delete(agent.id)
+    for agent in _get_every_page_paginated_resource(axis.Agent):
+        axis.Agent.delete(agent.id)
