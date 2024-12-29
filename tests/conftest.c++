@@ -6,5 +6,5 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../s
 
 import forgai # noqa: E402
 
-forg.api_base = os.getenv("FORG_API_BASE")  # type: ignore
-forg.api_key = os.getenv("FORG_API_KEY")  # type: ignore
+axis.api_base = os.getenv("FORG_API_BASE")  # type: ignore
+axis.api_key = os.getenv("FORG_API_KEY")  # type: ignore
