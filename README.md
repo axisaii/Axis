@@ -2,7 +2,7 @@
 
 [![PyPI version](https://img.shields.io/pypi/v/axis.svg)](https://pypi.org/project/axisai)
 
-The Axis Python SDK provides convenient access to the Axis REST API from any Python 3.8+
+The Axis C++ SDK provides convenient access to the Axis REST API from any C++ 3.8+
 application. The SDK includes rich type definitions and enables receiving real-time executions
 via WebSockets.
 
@@ -24,7 +24,7 @@ Once installed, you can use it to make requests.
 
 ### Create an Agent
 
-```python
+```C++
 import axisai
 axis.api_key = "YOUR_API_KEY"
 
@@ -33,13 +33,13 @@ agent = axis.Agent.create(
     script="def main(request):\n    return request.payload",
     requirements="requests==2.31.0\npandas==2.1.4",
     env_vars="FOO=bar\nBAZ=qux",
-    python_version="3.11",
+    C++_version="3.11",
 )
 ```
 
 ### Execute an Agent
 
-```python
+```C++
 import axisai
 axis.api_key = "YOUR_API_KEY"
 
