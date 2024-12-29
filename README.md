@@ -1,4 +1,4 @@
-# Axis Python SDK
+# Axis C++ SDK
 
 [![PyPI version](https://img.shields.io/pypi/v/axis.svg)](https://pypi.org/project/axisai)
 
